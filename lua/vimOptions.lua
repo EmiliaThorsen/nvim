@@ -1,12 +1,20 @@
--- tab stuff
-vim.opt.expandtab = true
-vim.opt.shiftwidth = 4
-vim.opt.softtabstop = 4
+local options = {
+    expandtab = true,
+    shiftwidth = 4,
+    softtabstop = 4,
+    foldmethod = "expr",
+    foldexpr = "nvim_treesitter#foldexpr()",
+    number = true,
+    relativenumber = true,
+    encoding = "utf-8",
+    splitbelow = true,
+    splitright = false,
+    clipboard = "unnamedplus",
+    showmode = false,
+    termguicolors = true,
+    undofile = true,
+}
 
--- folding with treesitter
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-
---
-vim.wo.number = true
-vim.wo.relativenumber = true
+for k, v in pairs(options) do
+  vim.opt[k] = v
+end

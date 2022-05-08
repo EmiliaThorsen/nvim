@@ -153,6 +153,11 @@ _G.packer_plugins = {
     path = "/home/emilia/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
+  ["quick-scope"] = {
+    loaded = true,
+    path = "/home/emilia/.local/share/nvim/site/pack/packer/start/quick-scope",
+    url = "https://github.com/unblevable/quick-scope"
+  },
   ["shade.nvim"] = {
     loaded = true,
     path = "/home/emilia/.local/share/nvim/site/pack/packer/start/shade.nvim",
