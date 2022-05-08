@@ -29,6 +29,7 @@ require("packer").startup(function()
     }
 
     -- utitlties
+    use 'unblevable/quick-scope'
     use 'norcalli/nvim-colorizer.lua'
     use 'sunjon/shade.nvim'
     use "lukas-reineke/indent-blankline.nvim"

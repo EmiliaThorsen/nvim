@@ -101,8 +101,8 @@ require'shade'.setup({overlay_opacity = 50})
 
 -- white space and pair shower
 vim.opt.list = true
-vim.cmd([[highlight indentBlankLineContextChar guifg=#ffffff gui=nocombine]])
-vim.cmd([[highlight IndentBlanklineContextStart guisp=#00FF00 gui=underline]])
+vim.cmd [[highlight indentBlankLineContextChar guifg=#ffffff gui=nocombine]]
+vim.cmd [[highlight IndentBlanklineContextStart guisp=#00FF00 gui=underline]]
 require("indent_blankline").setup {
     show_end_of_line = true,
     show_current_context = true,
@@ -111,3 +111,7 @@ require("indent_blankline").setup {
 
 -- gitgutter
 require('gitsigns').setup()
+
+-- quick scope
+vim.g.qs_highlight_on_keys = {'f', 'F', 't', 'T'}
+vim.g.qs_max_chars = 80
