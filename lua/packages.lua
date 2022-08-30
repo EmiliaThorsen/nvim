@@ -1,12 +1,26 @@
+local fn = vim.fn
+local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+if fn.empty(fn.glob(install_path)) > 0 then
+  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+  vim.cmd [[packadd packer.nvim]]
+end
+
 require("packer").startup(function()
     -- packer it self
     use "wbthomason/packer.nvim"
 
     -- looks
+
+    -- icons for stuff
     use "kyazdani42/nvim-web-devicons"
+    -- theme
     use "RRethy/nvim-base16"
+    -- status line
     use 'nvim-lualine/lualine.nvim'
+    -- start menu
     use 'goolord/alpha-nvim'
+
+    -- coding tools
 
     -- treesitter
     use "nvim-treesitter/nvim-treesitter"
@@ -16,25 +30,44 @@ require("packer").startup(function()
     use "williamboman/nvim-lsp-installer"
     use "nvim-lua/lsp-status.nvim"
 
-    -- coq
-    use {
-        "ms-jpq/coq_nvim",
-        branch = "coq",
-        event = "InsertEnter",
-        run = ":COQdeps",
-        requires = {
-            { "ms-jpq/coq.artifacts", branch = "artifacts" },
-            { "ms-jpq/coq.thirdparty", branch = "3p", module = "coq_3p" }
-        }
-    }
+    --cmp
+    use "hrsh7th/nvim-cmp"
+    use "hrsh7th/cmp-buffer"
+    use "hrsh7th/cmp-path"
+    use "saadparwaiz1/cmp_luasnip"
+    use "hrsh7th/cmp-nvim-lsp"
+
+    -- luasnip
+    use "L3MON4D3/LuaSnip"
+    use "rafamadriz/friendly-snippets"
 
     -- utitlties
+
+    -- better t and f
     use 'unblevable/quick-scope'
+    -- hex code preview
     use 'norcalli/nvim-colorizer.lua'
+    -- darken non focused splits
     use 'sunjon/shade.nvim'
+    -- indent lines
     use "lukas-reineke/indent-blankline.nvim"
-    use {
-        'lewis6991/gitsigns.nvim',
-        requires = {'nvim-lua/plenary.nvim'}
-    }
+    -- git sidebar
+    use 'nvim-lua/plenary.nvim'
+    use 'lewis6991/gitsigns.nvim'
+
+    if packer_bootstrap then
+        require('packer').sync()
+    end
 end)
+
+-- configurations
+require("plugins/theme")
+require("plugins/statusLine")
+require("plugins/cmp")
+require("plugins/lsp")
+require('plugins/indentLines')
+require("plugins/quickScope")
+
+require('gitsigns').setup()
+require('colorizer').setup()
+require('shade').setup({overlay_opacity = 40})
