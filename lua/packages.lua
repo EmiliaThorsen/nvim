@@ -9,6 +9,9 @@ require("packer").startup(function()
     -- packer it self
     use "wbthomason/packer.nvim"
 
+    -- commonly used dependencies
+    use 'nvim-lua/plenary.nvim'
+
     -- looks
 
     -- icons for stuff
@@ -43,6 +46,10 @@ require("packer").startup(function()
 
     -- utitlties
 
+    -- telescope
+    use {
+	'nvim-telescope/telescope.nvim',
+    }
     -- better t and f
     use 'unblevable/quick-scope'
     -- hex code preview
@@ -52,7 +59,6 @@ require("packer").startup(function()
     -- indent lines
     use "lukas-reineke/indent-blankline.nvim"
     -- git sidebar
-    use 'nvim-lua/plenary.nvim'
     use 'lewis6991/gitsigns.nvim'
 
     if packer_bootstrap then
@@ -62,9 +68,11 @@ end)
 
 -- configurations
 require("plugins/theme")
+require("plugins/startMenu")
 require("plugins/statusLine")
 require("plugins/cmp")
 require("plugins/lsp")
+require("plugins/telescope")
 require('plugins/indentLines')
 require("plugins/quickScope")
 
