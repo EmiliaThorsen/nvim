@@ -16,3 +16,23 @@ require('base16-colorscheme').setup({ -- modified base16-isotope theme
     base0E = "#ff0099",
     base0F = "#3300ff",
 })
+
+vim.cmd [[highlight indentBlankLineContextChar guifg=#ffffff gui=nocombine]]
+vim.cmd [[highlight IndentBlanklineContextStart guisp=#ffffff gui=underdouble]]
+
+vim.cmd [[highlight TelescopeBorder         guifg=#ffffff]]
+
+vim.cmd [[highlight TelescopePromptBorder   guifg=#ffffff guibg=#000000]]
+vim.cmd [[highlight TelescopePromptTitle    guibg=#000000 guifg=#ffffff]]
+vim.cmd [[highlight TelescopePromptNormal   guibg=#000000]]
+vim.cmd [[highlight TelescopePromptPrefix   guibg=#000000 guifg=#ffffff]]
+
+vim.cmd [[highlight TelescopeSelection      guibg=#666666 guifg=#ffffff]]
+
+vim.cmd [[highlight TelescopeMatching       guifg=#ff0000]]
+
+vim.cmd [[highlight TelescopeResultsTitle   guibg=#000000 guifg=#ffffff]]
+vim.cmd [[highlight TelescopeResultsBorder  guifg=#ffffff]]
+
+vim.cmd [[highlight TelescopePreviewBorder  guifg=#ffffff]]
+vim.cmd [[highlight TelescopePreviewTitle   guibg=#000000 guifg=#ffffff]]

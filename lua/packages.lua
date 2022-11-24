@@ -53,7 +53,7 @@ require("packer").startup(function()
     -- utitlties
 
     -- telescope
-    use 'nvim-telescope/telescope.nvim'
+    use {'nvim-telescope/telescope.nvim', tag = "0.1.0"}
     -- better t and f
     use 'unblevable/quick-scope'
     -- hex code preview
