@@ -11,22 +11,14 @@ local function map(key, oldkey)
 end
 
 
--- I like my arrow keys ):<
-map("å", "p")
-map("ä", "l")
-map("p", "k")
-map("ö", "j")
-map("l", "h")
+-- moving with ctrl hjkl
+map("c-j", "<C-w><Down>")
+map("<C-k>", "<C-w><Up>")
+map("<C-h>", "<C-w><Left>")
+map("C-l", "<C-w><Right>")
 
-
--- moving with ctrl arrow key
-map(";", "<C-w><Down>")
-map("<C-p>", "<C-w><Up>")
-map("<C-l>", "<C-w><Left>")
-map("'", "<C-w><Right>")
-
--- resizing altgr arrow keys
-nkeymap("ø", ":resize -2<CR>")
-nkeymap("þ", ":resize +2<CR>")
-nkeymap("ł", ":vertical resize -2<CR>")
-nkeymap("æ", ":vertical resize +2<CR>")
+-- resizing altgr hjkl
+nkeymap("ˀ", ":resize -2<CR>")
+nkeymap("ĸ", ":resize +2<CR>")
+nkeymap("ħ", ":vertical resize -2<CR>")
+nkeymap("ł", ":vertical resize +2<CR>")

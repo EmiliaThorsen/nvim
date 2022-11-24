@@ -1,9 +1,15 @@
-local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-  vim.cmd [[packadd packer.nvim]]
+local ensure_packer = function()
+  local fn = vim.fn
+  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+  if fn.empty(fn.glob(install_path)) > 0 then
+    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    vim.cmd [[packadd packer.nvim]]
+    return true
+  end
+  return false
 end
+
+local packer_bootstrap = ensure_packer()
 
 require("packer").startup(function()
     -- packer it self
@@ -26,7 +32,7 @@ require("packer").startup(function()
     -- coding tools
 
     -- treesitter
-    use "nvim-treesitter/nvim-treesitter"
+    use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
 
     -- LSP
     use "neovim/nvim-lspconfig"
@@ -47,9 +53,7 @@ require("packer").startup(function()
     -- utitlties
 
     -- telescope
-    use {
-	'nvim-telescope/telescope.nvim',
-    }
+    use 'nvim-telescope/telescope.nvim'
     -- better t and f
     use 'unblevable/quick-scope'
     -- hex code preview
@@ -67,9 +71,11 @@ require("packer").startup(function()
 end)
 
 -- configurations
+require("plugins/treesitter")
 require("plugins/theme")
 require("plugins/startMenu")
 require("plugins/statusLine")
+require("plugins/startMenu")
 require("plugins/cmp")
 require("plugins/lsp")
 require("plugins/telescope")
