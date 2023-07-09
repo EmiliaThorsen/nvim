@@ -22,3 +22,6 @@ nkeymap("ˀ", ":resize -2<CR>")
 nkeymap("ĸ", ":resize +2<CR>")
 nkeymap("ħ", ":vertical resize -2<CR>")
 nkeymap("ł", ":vertical resize +2<CR>")
+
+-- telescope
+map("<C-Space>", ":Telescope<CR>")

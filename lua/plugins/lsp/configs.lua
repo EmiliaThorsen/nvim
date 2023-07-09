@@ -2,8 +2,7 @@ local lspInstaller = require("nvim-lsp-installer")
 
 local lspConfig = require("lspconfig")
 
-
-local servers = {"clangd", "sumneko_lua", "pyright" }
+local servers = {"clangd", "lua_ls", "pyright" }
 
 lspInstaller.setup({ensure_installed = servers})
 

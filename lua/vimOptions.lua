@@ -4,6 +4,7 @@ local options = {
     softtabstop = 4,
     foldmethod = "expr",
     foldexpr = "nvim_treesitter#foldexpr()",
+    foldenable = false,
     number = true,
     relativenumber = true,
     encoding = "utf-8",

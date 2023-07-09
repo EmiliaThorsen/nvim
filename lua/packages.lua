@@ -64,6 +64,8 @@ require("packer").startup(function()
     use "lukas-reineke/indent-blankline.nvim"
     -- git sidebar
     use 'lewis6991/gitsigns.nvim'
+    -- auto close stuff
+    use 'windwp/nvim-autopairs'
 
     if packer_bootstrap then
         require('packer').sync()
@@ -81,6 +83,7 @@ require("plugins/lsp")
 require("plugins/telescope")
 require('plugins/indentLines')
 require("plugins/quickScope")
+require("plugins/autopairs")
 
 require('gitsigns').setup()
 require('colorizer').setup()
