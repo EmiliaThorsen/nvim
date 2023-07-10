@@ -66,6 +66,12 @@ require("packer").startup(function()
     use 'lewis6991/gitsigns.nvim'
     -- auto close stuff
     use 'windwp/nvim-autopairs'
+    -- better lsp error thing
+    use "https://git.sr.ht/~whynothugo/lsp_lines.nvim"
+    -- todo comment highlighter
+    use "folke/todo-comments.nvim"
+    -- better lsp-signs
+    use "onsails/lspkind.nvim"
 
     if packer_bootstrap then
         require('packer').sync()
@@ -84,7 +90,9 @@ require("plugins/telescope")
 require('plugins/indentLines')
 require("plugins/quickScope")
 require("plugins/autopairs")
+require("plugins/todoComments")
 
+require("lsp_lines").setup() vim.diagnostic.config({virtual_text = false})
 require('gitsigns').setup()
 require('colorizer').setup()
 require('shade').setup({overlay_opacity = 40})

@@ -6,5 +6,8 @@ require('telescope').setup {
             treesitter = true,
             msg_bg_fillchar = "#"
         }
+    },
+    pickers = {
+        
     }
 }

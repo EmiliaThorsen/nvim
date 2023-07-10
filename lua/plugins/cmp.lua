@@ -8,6 +8,8 @@ local check_backspace = function()
     return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
 end
 
+local lspkind = require("lspkind")
+
 cmp.setup {
     snippet = {
         expand = function(args)
@@ -44,16 +46,20 @@ cmp.setup {
         end, {"i", "s"})
     },
     formatting = {
-        fields = { "abbr", "menu", "kind" },
-        format = function(entry, vim_item)
-            vim_item.menu = ({
-                nvim_lsp = "[LSP]",
-                luasnip = "[SNIP]",
-                buffer = "[BUFF]",
-                path = "[PATH]",
-            })[entry.source.name]
-            return vim_item
-        end,
+        fields = {"abbr", "kind", "menu"},
+        format = lspkind.cmp_format({
+            maxwidth = 40,
+            ellipsis_char = "...",
+            before = function(entry, vim_item)
+                vim_item.menu = ({
+                    nvim_lsp = "[LSP]",
+                    luasnip = "[SNIP]",
+                    buffer = "[BUFF]",
+                    path = "[PATH]",
+                })[entry.source.name]
+                return vim_item
+            end,
+        }),
     },
     sources = {
         { name = "nvim_lsp" },
